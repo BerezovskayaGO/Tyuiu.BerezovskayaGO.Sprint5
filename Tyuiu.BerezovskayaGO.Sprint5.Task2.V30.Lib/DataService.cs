@@ -16,20 +16,20 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task2.V30.Lib
                 File.Delete(path);
             }
 
-            int rows = matrix.GetLength(0) + 1;
+            int rows = matrix.GetUpperBound(0) + 1;
             int columns = matrix.Length / rows;
 
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    if (matrix[i, j] < 1)
+                    if (matrix[i, j] > 0)
                     {
-                        matrix[i, j] = 0;
+                        matrix[i, j] = 1;
                     }
                     else
                     {
-                        matrix[i, j] = 1;
+                        matrix[i, j] = 0;
                     }
                 }
             }
