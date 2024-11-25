@@ -6,7 +6,7 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task1.V16.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string path = Path.Combine(new string[] { Path.GetTempPath(), "OutPutFileTask1.txt" });
+            string path = Path.GetTempFileName();
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
@@ -20,7 +20,16 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task1.V16.Lib
             string strY;
             for (int x = startValue; x <= stopValue; x++)
             {
-                y = Math.Round((Math.Sin(x) + (2 * x)/3.0 - Math.Cos(x) * 4 * x), 2);
+                double zero = 2 * x - 0.5;
+
+                if (zero == 0)
+                {
+                    return Convert.ToString(0);
+                }
+                else
+                {
+                    y = Math.Round(Math.Sin(x) + (2 * x) / 3 - Math.Cos(x) * 4 * x, 2);
+                }
                 strY = Convert.ToString(y);
 
                 if (x != stopValue)
