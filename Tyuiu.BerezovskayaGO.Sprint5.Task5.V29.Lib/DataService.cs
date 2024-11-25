@@ -6,6 +6,7 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task5.V29.Lib
     {
         public double LoadFromDataFile(string path)
         {
+            int min = 1000;
             double res = 0;
             using (StreamReader reader = new StreamReader(path))
             {
@@ -22,11 +23,15 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task5.V29.Lib
                         if ((lineParse > 9)&&(lineParse <100))
                         {
                             res = lineParse;
+                            while (res < min)
+                            {
+                                min = (int)res;
+                            }
                         }
                     }
                 }
             }
-            return res;
+            return min;
         }
     }
 }
