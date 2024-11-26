@@ -12,9 +12,10 @@ namespace Tyuiu.BerezovskayaGO.Sprint5.Task6.V23.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < line.Length; i++)
+                    string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var word in words)
                     {
-                        if (line[i] == "-")
+                        if (word == "-")
                         {
                             count++;
                         }
